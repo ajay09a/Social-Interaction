@@ -1,24 +1,15 @@
 import React, {useState, useEffect} from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../firebase'
 import {toast} from 'react-toastify'
-import {firestore} from '../firebase'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const SignIn = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
-    const [users, setusers] = useState([]);
-    const [userdata, setuserdata] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
-        firestore.collection("users").get().then((snapshot)=>{
-            const user = snapshot.docs.map((doc)=>{
-                return {
-                  id: doc.id,
-                  ...doc.data()
-                }
-              });
-              setusers(user);
-        })
     
     }, [])
     
@@ -28,7 +19,13 @@ const SignIn = () => {
             toast.success("Please enter all field")
             return;
         }
-        toast.success(`Welcome!`)
+        signInWithEmailAndPassword(auth, email, password).then((res)=>{
+          navigate("/user/home")
+          toast.success(`Welcome! ${res.user.displayName}`)
+        })
+        .catch((err)=>{
+          console.log("error", err.message)
+        })
 
     }
   return (
@@ -37,6 +34,7 @@ const SignIn = () => {
             <input placeholder='Enter Your Email' onChange={(e)=>setemail(e.target.value)} />
             <input placeholder='Create Password' onChange={(e)=>setpassword(e.target.value)} />
             <button>Sign In</button>
+            <Link to="/signup">SignUp</Link>
         </form>
     </div>
   )

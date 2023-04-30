@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {toast} from 'react-toastify'
-import {firestore} from '../firebase'
+import {auth} from '../firebase'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 
 const SignUp = () => {
     const [name, setname] = useState("");
@@ -14,14 +15,16 @@ const SignUp = () => {
             return;
         }
 
-        firestore.collection("users").add({
-            name: name,
-            email: email,
-            password: password,
-            CreatedAt: new Date(),
+        createUserWithEmailAndPassword(auth, email, password).then((res)=>{
+          const user = res.user;
+          updateProfile(user, {
+            displayName: name
           })
-          toast.success("Account created!")
-
+          console.log(user)
+        })
+        .catch((err)=>{
+          console.log("Error", err)
+        })
     }
     
   return (
