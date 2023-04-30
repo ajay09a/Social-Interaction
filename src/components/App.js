@@ -15,7 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<SignIn setuserLoggedIn={setuserLoggedIn} />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
-        {userLoggedIn?<Route path="/user/home" element={<Home />}></Route>:null}
+        {/* {userLoggedIn?<Route path="/user/home" element={<Home />}></Route>:null} */}
+        <Route path="/user/home" element={<Home />}></Route>
       </Routes>
     </BrowserRouter>
     </>
