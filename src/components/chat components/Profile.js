@@ -5,11 +5,14 @@ import styles from '../../styles/profile.module.css'
 import UpdateUser from './UpdateUser';
 import UpdatePassword from './UpdatePassword';
 import DeleteUser from './DeleteUser';
+import UpdateDP from './UpdateDP';
 
 const Profile = () => {
   const [name, setname] = useState("");
     const [imageUrl, setimageUrl] = useState("");
-    const [update, setupdate] = useState(false)
+    const [updatename, setupdatename] = useState(false)
+    const [updatepass, setupdatepass] = useState(false)
+    const [photourl, setphotourl] = useState(false)
     useEffect(() => {
           const user = auth.currentUser;
           if (user !== null) {
@@ -28,11 +31,26 @@ const Profile = () => {
     <div className={styles.container}>
       <img className={styles.image} src={imageUrl} alt='Profile Picture' />
       <h1>{name}</h1>
-      {update?<><UpdateUser /></>:null}
-      {update?<><span>update pass</span><UpdatePassword /></>:null}
-      <DeleteUser />
-      <span onClick={()=>setupdate(!update)}>update name</span>
-      <LogOut />
+      <ul className={styles.ul}>
+        <li>
+        {photourl?<UpdateDP />:null}
+        <span onClick={()=>setphotourl(!photourl)}>update Profile Picture</span>
+        </li>
+        <li>
+        {updatename?<UpdateUser />:null}
+        <span onClick={()=>setupdatename(!updatename)}>update Name</span>
+        </li>
+        <li>
+        {updatepass?<UpdatePassword />:null}
+        <span onClick={()=>setupdatepass(!updatepass)}>update Password</span>
+        </li>
+        <li>
+        <DeleteUser />
+        </li>
+        <li>
+        <LogOut />
+        </li>
+      </ul>
     </div>
   )
 }
