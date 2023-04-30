@@ -3,6 +3,8 @@ import { auth } from '../../firebase';
 import LogOut from '../LogOut'
 import styles from '../../styles/profile.module.css'
 import UpdateUser from './UpdateUser';
+import UpdatePassword from './UpdatePassword';
+import DeleteUser from './DeleteUser';
 
 const Profile = () => {
   const [name, setname] = useState("");
@@ -26,7 +28,9 @@ const Profile = () => {
     <div className={styles.container}>
       <img className={styles.image} src={imageUrl} alt='Profile Picture' />
       <h1>{name}</h1>
-      {update?<UpdateUser />:null}
+      {update?<><UpdateUser /></>:null}
+      {update?<><span>update pass</span><UpdatePassword /></>:null}
+      <DeleteUser />
       <span onClick={()=>setupdate(!update)}>update name</span>
       <LogOut />
     </div>

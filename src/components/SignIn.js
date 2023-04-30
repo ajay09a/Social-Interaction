@@ -26,7 +26,7 @@ const SignIn = ({setuserLoggedIn}) => {
           toast.success(`Welcome! ${res.user.displayName}`)
         })
         .catch((err)=>{
-          console.log("error", err.message)
+          toast.error(`${err.message}`)
         })
 
     }

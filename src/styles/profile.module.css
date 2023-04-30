@@ -1,7 +1,9 @@
 .container{
     width: 500px;
-    margin: 0 auto;
-    background-color: blanchedalmond;
+    background-color: #a484a9;
+    position: absolute;
+    margin-left: 30%;
+    top: 17vh;
 }
 .image{
     width: 100px;
