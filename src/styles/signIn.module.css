@@ -1,8 +1,30 @@
 body{
     background-color: #88a8bf;
 }
+.image{
+    display: flex;
+    align-items: center;
+    margin-top: 5vh;
+    justify-content: space-around;
+}
+.image img {
+    border-radius: 29px;
+}
+.outerContainer{
+    background: #a58c42;
+    width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    height: 75vh;
+    padding: 10px 0px 21px 0px;
+    /* margin: 0 auto; */
+    top: 9vh;
+    left: 22vw;
+    position: absolute;
+    color: white;
+}
 .container {
-    background: #e7e7e7;
+    background: #a58c42;
     width: 400px;
     border-radius: 8px;
     text-align: center;
@@ -26,7 +48,8 @@ body{
 
 .form button{
     border-radius: 6px;
-    background-color: #88a8bf;
+    background-color: #9c27b069;
+    color: white;
     padding: 7px 16px;
     margin: 7px 0px;
     border-style: hidden;

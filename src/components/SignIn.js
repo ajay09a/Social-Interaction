@@ -31,16 +31,21 @@ const SignIn = ({setuserLoggedIn}) => {
 
     }
   return (
-    <div className={styles.container}>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-          <input placeholder='Enter Your Email' onChange={(e)=>setemail(e.target.value)} />
-          <input placeholder='Enter Your Password' onChange={(e)=>setpassword(e.target.value)} />
-          <button>Sign In</button>
-      </form>
-      <span>Don't have an account?</span>
-      <Link to="/signup">SignUp</Link>
+  <div>
+    <div className={styles.image}><img src='https://images.unsplash.com/photo-1457131760772-7017c6180f05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=853&q=80' /></div>
+    <div className={styles.outerContainer}>
+      <div className={styles.container}>
+        <h1>Sign In</h1>
+        <form onSubmit={handleSubmit} className={styles.form}>
+            <input placeholder='Enter Your Email' onChange={(e)=>setemail(e.target.value)} />
+            <input placeholder='Enter Your Password' onChange={(e)=>setpassword(e.target.value)} />
+            <button>Sign In</button>
+        </form>
+        <span>Don't have an account? &nbsp;</span>
+        <Link to="/signup">SignUp</Link>
+      </div>
     </div>
+  </div>
   )
 }
 
