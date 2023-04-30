@@ -28,14 +28,17 @@ const SignUp = () => {
     }
     
   return (
-    <div>
-        <form onSubmit={handleSubmit} style={{display:"flex", flexDirection: "column", width:300}}>
-            <input placeholder='Enter Your Name' onChange={(e)=>setname(e.target.value)} />
-            <input placeholder='Enter Your Email' onChange={(e)=>setemail(e.target.value)} />
-            <input placeholder='Create Password' onChange={(e)=>setpassword(e.target.value)} />
-            <input placeholder='Confirm Password' />
-            <button>Sign up</button>
-        </form>
+    <div className={styles.container}>
+      <h1>Sign In</h1>
+      <h3>Sign up to chat with your friends.</h3>
+      <form onSubmit={handleSubmit} className={styles.form}>
+          <input placeholder='Enter Your Name' onChange={(e)=>setname(e.target.value)} />
+          <input placeholder='Enter Your Email' onChange={(e)=>setemail(e.target.value)} />
+          <input placeholder='Create Password' onChange={(e)=>setpassword(e.target.value)} />
+          <input placeholder='Confirm Password' />
+          <button>Sign up</button>
+          <span>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</span>
+      </form>
     </div>
   )
 }

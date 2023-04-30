@@ -35,7 +35,7 @@ const SignIn = ({setuserLoggedIn}) => {
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
           <input placeholder='Enter Your Email' onChange={(e)=>setemail(e.target.value)} />
-          <input placeholder='Create Password' onChange={(e)=>setpassword(e.target.value)} />
+          <input placeholder='Enter Your Password' onChange={(e)=>setpassword(e.target.value)} />
           <button>Sign In</button>
       </form>
       <span>Don't have an account?</span>
