@@ -1,0 +1,9 @@
+.container{
+    width: 500px;
+    margin: 0 auto;
+    background-color: blanchedalmond;
+}
+.image{
+    width: 100px;
+    border-radius: 50%;
+}

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { auth } from '../../firebase';
-import LogOut from '../LogOut'
-import styles from '../../styles/profile.module.css'
-import UpdateUser from './UpdateUser';
+import styles from '../../styles/chatNavbar.module.css'
+import Profile from './Profile';
 
-const Profile = () => {
+const ChatNavbar = () => {
   const [name, setname] = useState("");
     const [imageUrl, setimageUrl] = useState("");
-    const [update, setupdate] = useState(false)
+    const [popup, setpopup] = useState(false)
     useEffect(() => {
           const user = auth.currentUser;
           if (user !== null) {
@@ -21,16 +20,18 @@ const Profile = () => {
             }
           }
       }, [])
-      
+
+    
   return (
-    <div className={styles.container}>
-      <img className={styles.image} src={imageUrl} alt='Profile Picture' />
-      <h1>{name}</h1>
-      {update?<UpdateUser />:null}
-      <span onClick={()=>setupdate(!update)}>update name</span>
-      <LogOut />
-    </div>
+    <>
+        {popup?<Profile />: null}
+        <div className={styles.container}>
+            <img className={styles.image} src={imageUrl} alt='Profile Picture' onClick={()=>setpopup(!popup)} />
+            <input placeholder='Search' />
+        </div>
+    </>
+    
   )
 }
 
-export default Profile
+export default ChatNavbar

@@ -1,0 +1,7 @@
+.container{
+    display: flex;
+}
+.image{
+    width: 50px;
+    border-radius: 50%;
+}
