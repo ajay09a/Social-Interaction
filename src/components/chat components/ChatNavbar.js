@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from '../../styles/chatNavbar.module.css'
 
 const ChatNavbar = () => {
   return (
-    <div>ChatNavbar</div>
+    <div className={styles.container}>ChatNavbar</div>
   )
 }
 
