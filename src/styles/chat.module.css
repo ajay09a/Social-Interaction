@@ -4,9 +4,26 @@
 .chatbox{
     background-color: aqua;
 }
-.inputbox{
+/* .inputbox{
+    bottom: 44px;
     display: flex;
-    flex-direction: row;
+    position: absolute;
+    align-items: center;
+} */
+.inputbox{
+    height: 50px;
+    padding: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputbox input{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: blue;
+    font-size: 18px;
 }
 .inputbox button{
     border-radius: 6px;
@@ -17,3 +34,19 @@
     border-style: hidden;
     cursor: pointer;
 }
+.send{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.send img{
+    height: 24px;
+    cursor: pointer;
+}
+/* .input{
+    height: 47px;
+    background: aquamarine;
+    border: none;
+    padding-left: 13px;
+    width: 100%;
+} */
