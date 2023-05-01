@@ -1,0 +1,8 @@
+.container{
+    height: 96.5%;
+    background: darkseagreen;
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
