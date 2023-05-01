@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { auth } from '../../firebase';
-import styles from '../../styles/chatNavbar.module.css'
+import styles from '../../styles/asideNavbar.module.css'
 import Profile from './Profile';
 
 const AsideNavbar = () => {
