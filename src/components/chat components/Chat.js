@@ -1,20 +1,20 @@
 import React from 'react'
-import styles from '../../styles/chat.module.css'
+import Messages from './Messages'
+import Input from './Input'
 
 const Chat = () => {
   return (
-    <div className={styles.container}>
-        <div className={styles.chatbox}></div>
-        <div className={styles.inputbox}>
-            <input placeholder='type here' />
-            <div className={styles.send}>
-                <input type='file' style={{display:"none"}} id='file' />
-                <label htmlFor='file'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/1246/1246111.png?w=740&t=st=1682951888~exp=1682952488~hmac=25c6c8fb7bd06da0b952cbf6ffe39df6e281ab8ebea4a0803169512bc2f4276e' alt='attach' />
-                </label>
-                <button>Send</button>
-            </div>
+    <div className='chat'>
+      <div className="chatNavbar">
+        <span>Jane</span>
+        <div className='chatIcons'>
+            <img src='https://e7.pngegg.com/pngimages/952/788/png-clipart-computer-icons-video-cameras-graphy-call-icon-blue-angle-thumbnail.png' alt='cam' />
+            <img src='https://cdn-icons-png.flaticon.com/512/992/992651.png' alt='add' />
+            <img src='https://cdn-icons-png.flaticon.com/512/7066/7066144.png' alt='more' />
         </div>
+      </div>
+      <Messages />
+      <Input />
     </div>
   )
 }

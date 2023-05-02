@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { auth } from '../../firebase';
-import styles from '../../styles/asideNavbar.module.css'
 import Profile from './Profile';
 
-const AsideNavbar = () => {
+const AsideNavbar = ({popup, setpopup}) => {
   const [name, setname] = useState("");
     const [imageUrl, setimageUrl] = useState("");
-    const [popup, setpopup] = useState(false)
+    
     useEffect(() => {
           const user = auth.currentUser;
           if (user !== null) {
@@ -24,10 +23,11 @@ const AsideNavbar = () => {
     
   return (
     <>
-        {popup?<Profile />: null}
-        <div className={styles.container}>
-            <img className={styles.image} src={imageUrl} alt='Profile Picture' onClick={()=>setpopup(!popup)} />
-            <input placeholder='Search' />
+        <div className="sideNavbar">
+            <div className='imgbox'>
+              <img src={imageUrl} alt='Profile Picture' onClick={()=>setpopup(!popup)} />
+            </div>
+            <span className='title'>Chat-App</span>
         </div>
     </>
     

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { auth } from '../../firebase';
 import LogOut from '../LogOut'
-import styles from '../../styles/profile.module.css'
 import UpdateUser from './UpdateUser';
 import UpdatePassword from './UpdatePassword';
 import DeleteUser from './DeleteUser';
@@ -28,29 +27,33 @@ const Profile = () => {
       }, [])
       
   return (
-    <div className={styles.container}>
-      <img className={styles.image} src={imageUrl} alt='Profile Picture' />
-      <h1>{name}</h1>
-      <ul className={styles.ul}>
-        <li>
-        {photourl?<UpdateDP />:null}
-        <span onClick={()=>setphotourl(!photourl)}>update Profile Picture</span>
-        </li>
-        <li>
-        {updatename?<UpdateUser />:null}
-        <span onClick={()=>setupdatename(!updatename)}>update Name</span>
-        </li>
-        <li>
-        {updatepass?<UpdatePassword />:null}
-        <span onClick={()=>setupdatepass(!updatepass)}>update Password</span>
-        </li>
-        <li>
-        <DeleteUser />
-        </li>
-        <li>
-        <LogOut />
-        </li>
-      </ul>
+    <div className="profile">
+      <div className='profileMenu'>
+        <div className='dp'>
+          <img src={imageUrl} alt='Profile Picture' />
+        </div>
+        <h1>{name}</h1>
+        <ul>
+          <li>
+          {photourl?<UpdateDP />:null}
+          <span onClick={()=>setphotourl(!photourl)}>update Profile Picture</span>
+          </li>
+          <li>
+          {updatename?<UpdateUser />:null}
+          <span onClick={()=>setupdatename(!updatename)}>update Name</span>
+          </li>
+          <li>
+          {updatepass?<UpdatePassword />:null}
+          <span onClick={()=>setupdatepass(!updatepass)}>update Password</span>
+          </li>
+          <li>
+          <DeleteUser />
+          </li>
+          <li>
+          <LogOut />
+          </li>
+        </ul>
+      </div>
     </div>
   )
 }

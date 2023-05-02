@@ -1,12 +1,13 @@
 import React from 'react'
 import AsideNavbar from './AsideNavbar'
 import FriendsList from './FriendsList'
-import styles from '../../styles/aside.module.css'
+import Search from './Search'
 
-const Aside = () => {
+const Aside = ({popup, setpopup}) => {
   return (
-    <div className={styles.container}>
-        <AsideNavbar />
+    <div className="sidebar">
+        <AsideNavbar popup={popup} setpopup={setpopup} />
+        <Search />
         <FriendsList />
     </div>
   )
