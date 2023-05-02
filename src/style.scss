@@ -33,6 +33,9 @@ body{
         border-radius: 29px;
         width: 63vw;
         height: 88vh;
+        @include tablet {
+            width: 90vw;
+           }
     }
 
     .formWrapper{
@@ -47,6 +50,12 @@ body{
         align-items: center;
         justify-content: center;
         background: #a58c42;
+        @include tablet {
+            margin-right: 30vw;
+           }
+        @include mobile() {
+            margin-right: 0;
+           }
 
         .title{
             color: black;
@@ -65,7 +74,13 @@ body{
                 width: 13vw;
                 border-bottom: 1px solid #9c27b069;
                 background: #a58c42;
-
+                @include tablet {
+                    width: 22vw;
+                   }
+                @include mobile() {
+                    width: 56vw;
+                   }
+                
                 &::placeholder{
                     color: rgb(175, 175, 175);
                 }

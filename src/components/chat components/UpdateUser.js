@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { auth } from '../../firebase';
-import { getAuth, updateProfile } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 
 const UpdateUser = () => {
     const [name, setname] = useState("");

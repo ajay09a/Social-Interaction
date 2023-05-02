@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Home from "./Home";
-import '../styles/style.scss'
+import '../style.scss'
 
 function App() {
   const [userLoggedIn, setuserLoggedIn] = useState(false)

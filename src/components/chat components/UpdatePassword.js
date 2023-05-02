@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { auth } from '../../firebase';
-import { getAuth, updatePassword } from "firebase/auth";
+import { updatePassword } from "firebase/auth";
 
 const UpdatePassword = () => {
     const [pass, setpass] = useState("");

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import {toast} from 'react-toastify'
 import {auth} from '../firebase'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useNavigate} from 'react-router-dom'
-// import styles from '../styles/signUp.module.css'
 
 const SignUp = () => {
     const [name, setname] = useState("");

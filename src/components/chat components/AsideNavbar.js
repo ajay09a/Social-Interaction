@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { auth } from '../../firebase';
-import Profile from './Profile';
 
 const AsideNavbar = ({popup, setpopup}) => {
   const [name, setname] = useState("");
