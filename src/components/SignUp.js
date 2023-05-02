@@ -3,7 +3,7 @@ import {toast} from 'react-toastify'
 import {auth} from '../firebase'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useNavigate} from 'react-router-dom'
-import styles from '../styles/signUp.module.css'
+// import styles from '../styles/signUp.module.css'
 
 const SignUp = () => {
     const [name, setname] = useState("");
@@ -35,27 +35,22 @@ const SignUp = () => {
     }
     
   return (
-    <>
-    <div>
-    <div className={styles.image}><img src='https://images.unsplash.com/photo-1457131760772-7017c6180f05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=853&q=80' /></div>
-    <div className={styles.outerContainer}>
-      <div className={styles.container}>
-      <h1>Sign In</h1>
-      <h3>Sign up to chat with your friends.</h3>
-      <form onSubmit={handleSubmit} className={styles.form}>
+    <div className="formContainer">
+      <img src='https://images.unsplash.com/photo-1457131760772-7017c6180f05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=853&q=80' />
+      <div className="formWrapper">
+      <span className='title'>Sign Up</span>
+      <span>Sign up to chat with your friends.</span>
+      <form onSubmit={handleSubmit}>
           <input placeholder='Enter Your Name' onChange={(e)=>setname(e.target.value)} />
           <input placeholder='Enter Your Email' onChange={(e)=>setemail(e.target.value)} />
           <input placeholder='Create Password' onChange={(e)=>setpassword(e.target.value)} />
           <input placeholder='Confirm Password' />
           <input placeholder='Avatar URL' onChange={(e)=>setimageUrl(e.target.value)} />
-          <span>By signing up, you agree to our Terms, Privacy Policy and Cookies Policy .</span>
+          {/* <span>By signing up, you agree to our Terms, Privacy Policy and Cookies Policy .</span> */}
           <button>Sign up</button>
       </form>
       </div>
     </div>
-  </div>
-    
-    </>
   )
 }
 

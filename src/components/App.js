@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Home from "./Home";
+import '../styles/style.scss'
 
 function App() {
   const [userLoggedIn, setuserLoggedIn] = useState(false)
