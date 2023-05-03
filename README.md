@@ -1,3 +1,20 @@
+# First page or Sign in page Screen shot
+
+![image](https://user-images.githubusercontent.com/92861422/235944746-38e66be6-fe56-415c-8cef-bb44237a17a5.png)
+
+
+# home page for signed in users
+
+![image](https://user-images.githubusercontent.com/92861422/235945598-05460890-9253-42fc-a969-692951705cee.png)
+
+
+
+# profile page
+
+![image](https://user-images.githubusercontent.com/92861422/235946159-bb67e5a6-42fb-4c17-a968-a5f2616f9927.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
