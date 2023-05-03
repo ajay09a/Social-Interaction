@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase'
 import {toast} from 'react-toastify'
 import {useNavigate} from 'react-router-dom'
 
-const LogOut = () => {
+const LogOut = ({issignout}) => {
     const navigate = useNavigate();
-    const handleLogOut= (e)=>{
-        e.preventDefault();
+    useEffect(() => {
+        navigate("/")
+    }, [])
+    
+    const handleLogOut= ()=>{
         signOut(auth).then((res)=>{
             console.log("sign out")
             toast.success("log out")
-            navigate("/")
+            
         })
         .catch((err)=>{
             console.log("Error", err)
@@ -19,7 +22,7 @@ const LogOut = () => {
     }
   return (
     <div>
-        <button onClick={handleLogOut}>Logout</button>
+        {issignout?handleLogOut():null}
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { getAuth, updateProfile } from "firebase/auth";
+import { toast } from 'react-toastify';
 
-const UpdateDP = () => {
+const UpdateDP = ({setphotourl}) => {
     const [photoURL, setphotoURL] = useState("");
     const handleClick = (e)=>{
         e.preventDefault();
@@ -10,6 +11,8 @@ const UpdateDP = () => {
         photoURL: photoURL
         }).then(() => {
         // Profile updated!
+        toast.success("Profile Picture Updated")
+        setphotourl(false)
         // ...
         }).catch((error) => {
         // An error occurred

@@ -82,7 +82,7 @@ const SignUp = () => {
           </label>
           {/* <span>By signing up, you agree to our Terms, Privacy Policy and Cookies Policy .</span> */}
           <button>Sign up</button>
-          {loading && "Uploading and compressing the image please wait..."}
+          {loading && "Uploading please wait..."}
       </form>
       </div>
     </div>

@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import { auth } from '../../firebase';
 import { updatePassword } from "firebase/auth";
+import { toast } from 'react-toastify';
 
-const UpdatePassword = () => {
+const UpdatePassword = ({setupdatepass}) => {
     const [pass, setpass] = useState("");
     const updatepass = (e)=>{
         e.preventDefault();
@@ -12,7 +13,8 @@ const UpdatePassword = () => {
 
         updatePassword(user, newPassword).then(() => {
         // Update successful.
-        console.log("success")
+        setupdatepass(false)
+        toast.success("Password Updated")
         }).catch((error) => {
         // An error ocurred
         console.log("error")

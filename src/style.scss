@@ -452,6 +452,16 @@ body{
                     &:hover{
                         background-color: #2f2d52;
                     }
+                    .update-menu{
+                        display: flex;
+                        align-items: center;
+                        gap: 13px;
+                        
+                        img{
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
                 }
                 button{
                     background-color: #195e5e;

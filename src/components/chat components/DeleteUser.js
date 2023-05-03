@@ -1,17 +1,22 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { getAuth, deleteUser } from "firebase/auth";
 import {useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
-const DeleteUser = () => {
+const DeleteUser = ({isDeleteUser}) => {
     const navigate = useNavigate();
 
-    const handleDelete = (e)=>{
+    useEffect(() => {
+      navigate("/")
+  }, [])
+
+    const handleDelete = ()=>{
         const auth = getAuth();
         const user = auth.currentUser;
 
         deleteUser(user).then(() => {
+          toast.success("Account Deleted")
         // User deleted.
-        navigate("/");
         }).catch((error) => {
         // An error ocurred
         // ...
@@ -19,7 +24,7 @@ const DeleteUser = () => {
     }
   return (
     <div>
-        <button onClick={handleDelete}>Delete Account</button>
+        {isDeleteUser?handleDelete():null}
     </div>
   )
 }

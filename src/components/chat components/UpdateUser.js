@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import { auth } from '../../firebase';
 import { updateProfile } from "firebase/auth";
+import { toast } from 'react-toastify';
 
-const UpdateUser = () => {
+const UpdateUser = ({setupdatename}) => {
     const [name, setname] = useState("");
     const updateName =(e)=>{
         e.preventDefault();
@@ -10,6 +11,8 @@ const UpdateUser = () => {
             displayName: name
           }).then(() => {
             // Profile updated!
+            toast.success("Name Updated")
+            setupdatename(false)
             // ...
           }).catch((error) => {
             // An error occurred
