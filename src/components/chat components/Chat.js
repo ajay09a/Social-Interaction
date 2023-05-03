@@ -2,17 +2,23 @@ import React, {useContext} from 'react'
 import Messages from './Messages'
 import Input from './Input'
 import {ChatContext} from "../../auth/ChatContext"
+import videoCall from "../../assets/video-calling.png"
+import addFriend from "../../assets/AddFriend.png"
+import more from "../../assets/open-menu.png"
 
 const Chat = () => {
   const { data } = useContext(ChatContext);
   return (
     <div className='chat'>
       <div className="chatNavbar">
-        <span>{data.user?.displayName}</span>
+        <div style={{display:"flex", alignItems:"center", gap:16}}>
+          <img src={data.user?.photoURL}  style={{width:50, height:50, borderRadius:50}}/>
+          <span>{data.user?.displayName}</span>
+        </div>
         <div className='chatIcons'>
-            <img src='https://e7.pngegg.com/pngimages/952/788/png-clipart-computer-icons-video-cameras-graphy-call-icon-blue-angle-thumbnail.png' alt='cam' />
-            <img src='https://cdn-icons-png.flaticon.com/512/992/992651.png' alt='add' />
-            <img src='https://cdn-icons-png.flaticon.com/512/7066/7066144.png' alt='more' />
+            <img src={videoCall} alt='cam' />
+            <img src={addFriend} alt='add' />
+            <img src={more} alt='more' />
         </div>
       </div>
       <Messages />

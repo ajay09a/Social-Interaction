@@ -5,6 +5,7 @@ import UpdateUser from './UpdateUser';
 import UpdatePassword from './UpdatePassword';
 import DeleteUser from './DeleteUser';
 import UpdateDP from './UpdateDP';
+import profile from "../../assets/profile.png"
 
 const Profile = () => {
   const [name, setname] = useState("");
@@ -34,9 +35,11 @@ const Profile = () => {
         </div>
         <h1>{name}</h1>
         <ul>
-          <li>
-          {photourl?<UpdateDP />:null}
-          <span onClick={()=>setphotourl(!photourl)}>update Profile Picture</span>
+          <li onClick={()=>setphotourl(!photourl)}>
+            
+          {photourl?<UpdateDP />:<div><img src={profile} alt='' style={{width:30, height:30}} />
+            <span >update Profile Picture</span></div>}
+          
           </li>
           <li>
           {updatename?<UpdateUser />:null}

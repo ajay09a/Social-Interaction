@@ -1,35 +1,39 @@
-import React, { useContext, useState } from "react";
-import { collection, query, where, getDocs, setDoc, doc, updateDoc, serverTimestamp, getDoc} from "firebase/firestore";
-import { db } from "../../firebase";
+import React, { useEffect, useContext, useState } from "react";
+import { setDoc, doc, updateDoc, serverTimestamp, getDoc} from "firebase/firestore";
+import { db, firestore } from "../../firebase";
 import { AuthContext } from "../../auth/AuthContext";
-const Search = () => {
+import {ChatContext} from "../../auth/ChatContext";
+import chat from '../../assets/chat.png'
+import add from '../../assets/add.png'
+
+const Search = ({islist, setislist}) => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
-  const [err, setErr] = useState(false);
+  const [list, setlist] = useState([])
+  const [popup, setpopup] = useState(false)
 
+  const { dispatch } = useContext(ChatContext);
+
+  const handleMe = (e)=>{
+    setUser(e);
+    setUsername(e.displayName);
+    setpopup(!popup)
+  }
+  useEffect(()=>{
+    firestore.collection('users').get().then((snapshot)=>{
+      const post = snapshot.docs.map((doc)=>{
+        return {
+          id: doc.id,
+          ...doc.data()
+        }
+      });
+      setlist(post);
+    })
+  }, [])
+  
   const { currentUser } = useContext(AuthContext);
 
-  const handleSearch = async () => {
-    const q = query(
-      collection(db, "users"),
-      where("displayName", "==", username)
-    );
-
-    try {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUser(doc.data());
-      });
-    } catch (err) {
-      setErr(true);
-    }
-  };
-
-  const handleKey = (e) => {
-    e.code === "Enter" && handleSearch();
-  };
-
-  const handleSelect = async () => {
+  const handleSelect = async (u) => {
     //check whether the group(chats in firestore) exists, if not create
     const combinedId =
       currentUser.uid > user.uid
@@ -61,31 +65,34 @@ const Search = () => {
           [combinedId + ".date"]: serverTimestamp(),
         });
       }
+      else{
+        handlechat(u)
+      }
     } catch (err) {}
 
     setUser(null);
     setUsername("")
+    setislist(!islist)
+  };
+
+  const handlechat = (u) => {
+    dispatch({ type: "CHANGE_USER", payload: u });
   };
   return (
     <div className="search">
-      <div className="searchForm">
-        <input
-          type="text"
-          placeholder="Find a user"
-          onKeyDown={handleKey}
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-        />
-      </div>
-      {err && <span>User not found!</span>}
-      {user && (
-        <div className="userChat" onClick={handleSelect}>
-          <img src={user.photoURL} alt="" />
-          <div className="userChatInfo">
-            <span>{user.displayName}</span>
-          </div>
-        </div>
-      )}
+      
+      <img src={add} alt="users" className="users" onClick={(e)=>{setislist(!islist)}} />
+      
+      {islist?<div className="scroll">
+        {list.map((dom, index)=>{
+        return <div className="userChat" onClick={(e)=>handleMe(dom)} key={index+1}>
+                  <img src={dom.photoURL} alt="" />
+                  <div className="userChatInfo">
+                    <span>{dom.displayName}</span>
+                  </div>
+                  {popup && dom.displayName===username?<img className="chatIcon" src={chat} alt="message me" onClick={(e)=>handleSelect(dom)} />:null}
+                </div>
+      })}</div>:null}
     </div>
   );
 };

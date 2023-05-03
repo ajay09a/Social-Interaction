@@ -26,7 +26,9 @@ const AsideNavbar = ({popup, setpopup}) => {
     <>
         <div className="sideNavbar">
             <div className='imgbox'>
-              <img src={currentUser.currentUser.photoURL} alt='' onClick={()=>setpopup(!popup)} />
+              {currentUser.currentUser.photoURL===null?
+              <img src="https://static.vecteezy.com/system/resources/previews/020/975/093/original/avatar-paper-style-iocn-grey-color-background-paper-style-icon-vector.jpg" alt='' onClick={()=>setpopup(!popup)} />:
+              <img src={currentUser.currentUser.photoURL} alt='' onClick={()=>setpopup(!popup)} />}
             </div>
             <span className='title'>Chat-App</span>
         </div>

@@ -5,6 +5,8 @@ import { arrayUnion, doc, serverTimestamp, Timestamp, updateDoc } from "firebase
 import { db, storage } from "../../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import picture from "../../assets/image.png"
+import send from "../../assets/send.png"
 
 const Input = () => {
   const [text, setText] = useState("");
@@ -30,7 +32,7 @@ const Input = () => {
                 id: uuid(),
                 text,
                 senderId: currentUser.uid,
-                date: Timestamp.now(),
+                date: new Date(),
                 img: downloadURL,
               }),
             });
@@ -74,7 +76,6 @@ const Input = () => {
         value={text}
       />
       <div className="send">
-        <img src='https://icon-library.com/images/attach-icon-png/attach-icon-png-17.jpg' alt="" />
         <input
           type="file"
           style={{ display: "none" }}
@@ -82,9 +83,9 @@ const Input = () => {
           onChange={(e) => setImg(e.target.files[0])}
         />
         <label htmlFor="file">
-          <img src='https://www.vhv.rs/dpng/d/517-5173387_gallery-gallery-icon-black-png-transparent-png.png' alt="" />
+          <img src={picture} alt="" />
         </label>
-        <button onClick={handleSend}>Send</button>
+        <img src={send} onClick={handleSend} alt="" />
       </div>
     </div>
   );
