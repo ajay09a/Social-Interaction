@@ -77,7 +77,7 @@ const SignUp = () => {
           <input placeholder='Confirm Password' />
           <input required style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
-            <img src="https://cdn-icons-png.flaticon.com/512/1246/1246111.png?w=740&t=st=1682951888~exp=1682952488~hmac=25c6c8fb7bd06da0b952cbf6ffe39df6e281ab8ebea4a0803169512bc2f4276e" alt="avatar" />
+            <img src="https://i.pinimg.com/736x/f4/a3/4e/f4a34ef7fd2f8d3a347a8c0dfb73eece.jpg" alt="avatar" />
             <span>Add an avatar</span>
           </label>
           {/* <span>By signing up, you agree to our Terms, Privacy Policy and Cookies Policy .</span> */}

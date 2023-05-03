@@ -22,7 +22,7 @@ const UpdatePassword = ({setupdatepass}) => {
         });
     }
   return (
-    <div>
+    <div className='update-menu'>
         <input placeholder='password' onChange={(e)=>setpass(e.target.value)} />
         <button onClick={updatepass}>Update</button>
     </div>

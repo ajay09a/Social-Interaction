@@ -20,7 +20,7 @@ const UpdateDP = ({setphotourl}) => {
         });
     }
   return (
-    <div>
+    <div className='update-menu'>
         <input placeholder='Profile Picture' onChange={(e)=>setphotoURL(e.target.value)} />
         <button onClick={handleClick}>Update</button>
     </div>

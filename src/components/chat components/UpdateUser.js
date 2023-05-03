@@ -20,7 +20,7 @@ const UpdateUser = ({setupdatename}) => {
           });
     }
   return (
-    <div>
+    <div className='update-menu'>
         <input placeholder='name' onChange={(e)=>setname(e.target.value)} />
         <button onClick={updateName}>Update</button>
     </div>
