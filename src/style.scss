@@ -526,6 +526,16 @@ body{
                             border-radius: 5px;
                             padding: 7px;
                         }
+                        label{
+                            display: flex;
+                            align-items: center;
+                            gap: 13px;
+                            img{
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 50%;
+                            }
+                        }
                     }
                 }
                 button{
